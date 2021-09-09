@@ -1,0 +1,109 @@
+@charset "utf-8";
+.her-container{
+	position: relative;
+
+	/* her-bar 의 기본너비 */
+	--her-bar-size: 10px;
+	/* her-bar 의 위치. +면 안으로 -면 밖으로 */
+	--her-bar-postion: 0;
+}
+
+.her-bar{
+	font-size: var(--her-bar-size,10px);
+	line-height: 1em;
+	position: absolute;
+	background-color: #aaa;
+	top:0;left:0;right:0;bottom:0;
+	z-index: 10;
+	display: none;
+	mix-blend-mode: darken;
+}
+.her-container.her-on .her-bar{
+	display: block;
+}
+.her-bar:hover , 
+.her-bar:focus ,
+.her-bar:focus-within,
+.her-bar:focus-visible{
+	/* mix-blend-mode: normal; */
+	background-color: #666;
+	z-index: 20px;
+}
+
+
+.her-bar[data-her-bar="e"] , 
+.her-bar[data-her-bar="w"]{
+	width:0.5em;
+	right:var(--her-bar-postion,0em);
+	left:auto;
+	cursor:e-resize;
+	cursor:col-resize;
+	z-index:11;
+}
+.her-bar[data-her-bar="w"]{
+	right:auto;
+	left:var(--her-bar-postion,0em);
+}
+.her-bar[data-her-bar="s"] ,
+.her-bar[data-her-bar="n"]{
+	height:0.5em;
+	bottom:var(--her-bar-postion,0em);
+	top:auto;
+	cursor:n-resize;
+	cursor:row-resize;
+	z-index:11;
+}
+.her-bar[data-her-bar="n"]{
+	bottom:auto;
+	top:var(--her-bar-postion,0em);
+}
+.her-bar[data-her-bar="se"] ,
+.her-bar[data-her-bar="sw"] ,
+.her-bar[data-her-bar="ne"] ,
+.her-bar[data-her-bar="nw"]  {
+	width:1em;
+	height:1em;
+	bottom:var(--her-bar-postion,0em);
+	top:auto;
+	right:var(--her-bar-postion,0em);
+	left:auto;
+	cursor:se-resize;
+	z-index:31;
+}
+.her-bar[data-her-bar="sw"]{
+	bottom:var(--her-bar-postion,0em);
+	top:auto;
+	right:auto;
+	left:var(--her-bar-postion,0em);
+	cursor:sw-resize;
+}
+.her-bar[data-her-bar="ne"]{
+	bottom:auto;
+	top:var(--her-bar-postion,0em);
+	right:var(--her-bar-postion,0em);
+	left:auto;
+	cursor:ne-resize;
+}
+.her-bar[data-her-bar="nw"]{
+	bottom:auto;
+	top:var(--her-bar-postion,0em);
+	right:auto;
+	left:var(--her-bar-postion,0em);
+	cursor:nw-resize;
+}
+
+
+
+.her-container[data-her-bar='n'] > .her-bar[data-her-bar='n'] ,
+.her-container[data-her-bar='s'] > .her-bar[data-her-bar='s'] ,
+.her-container[data-her-bar='e'] > .her-bar[data-her-bar='e'] ,
+.her-container[data-her-bar='w'] > .her-bar[data-her-bar='w'] ,
+.her-container[data-her-bar='ne'] > .her-bar[data-her-bar='ne'] ,
+.her-container[data-her-bar='nw'] > .her-bar[data-her-bar='nw'] ,
+.her-container[data-her-bar='se'] > .her-bar[data-her-bar='se'] ,
+.her-container[data-her-bar='sw'] > .her-bar[data-her-bar='sw'] 
+{
+	mix-blend-mode: normal;
+	background-color: #777;
+	z-index: 30;
+}
