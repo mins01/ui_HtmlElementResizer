@@ -92,7 +92,13 @@ const HtmlElementResizer = (function(){
 	HtmlElementResizer_on = false;
 	class HtmlElementResizer{
 		static debug = false;
-		
+		static on(d){
+			this.addEvents(d);
+		}
+		static off(d){
+			this.removeEvents(d);
+		}
+
 		static addEvents(d){
 			if(HtmlElementResizer_on){return}
 			if(!d) d = document;
@@ -101,6 +107,7 @@ const HtmlElementResizer = (function(){
 			d.defaultView.addEventListener('touchmove',ontouchstart,{passive: false})
 			d.addEventListener('pointermove',onpointermove)
 			d.addEventListener('pointerup',onpointerup)
+			if(d.body) d.body.classList.add('her-on');
 			HtmlElementResizer_on = !HtmlElementResizer_on;
 		}
 		static removeEvents(d){
@@ -111,6 +118,7 @@ const HtmlElementResizer = (function(){
 			d.defaultView.removeEventListener('touchmove',ontouchstart)
 			d.removeEventListener('pointermove',onpointermove)
 			d.removeEventListener('pointerup',onpointerup)
+			if(d.body) d.body.classList.remove('her-on');
 			HtmlElementResizer_on = !HtmlElementResizer_on;
 		}
 	}

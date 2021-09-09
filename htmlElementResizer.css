@@ -18,7 +18,7 @@
 	display: none;
 	mix-blend-mode: darken;
 }
-.her-container.her-on .her-bar{
+body.her-on .her-container.her-on .her-bar{
 	display: block;
 }
 .her-bar:hover , 

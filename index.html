@@ -36,9 +36,11 @@
 
 	<link rel="stylesheet" href="htmlElementResizer.css"> 
 	<script src="HtmlElementResizer.js"></script>
-	<script defer>
-		HtmlElementResizer.debug = true;
-		HtmlElementResizer.addEvents()
+	<script>
+		window.addEventListener('load',function(){
+			HtmlElementResizer.debug = true;
+			HtmlElementResizer.addEvents()
+		})
 	</script>
 	
 </head>
@@ -47,8 +49,8 @@
 		<h1>ui_HtmlElementResizer</h1>
 	</div>
 	<div class="container">
-		<button class="btn btn-info" type="button" onclick="HtmlElementResizer.addEvents()"> on</button>
-		<button class="btn btn-info" type="button" onclick="HtmlElementResizer.removeEvents()"> off</button>
+		<button class="btn btn-info" type="button" onclick="HtmlElementResizer.on()"> on</button>
+		<button class="btn btn-info" type="button" onclick="HtmlElementResizer.off()"> off</button>
 		<hr>
 		<div class="her-container her-on  her-target" style="width:300px;height:300px; background-color: #abc; ">
 			기본형
