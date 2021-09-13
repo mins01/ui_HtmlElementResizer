@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HtmlElementResizer SAMPLE</title>
+
+    <link rel="stylesheet" href="htmlElementResizer.css"> 
+	<script src="HtmlElementResizer.js"></script>
+	<script>
+		window.addEventListener('load',function(){
+			HtmlElementResizer.debug = true;
+			HtmlElementResizer.addEvents()
+		})
+	</script>
+    <style>
+        html,body{padding:0;margin:0;height:100%;}
+        .box{
+            border: 1px solid #ccc;
+            box-sizing: content-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex;overflow: hidden; flex-direction: row;flex-wrap: nowrap;justify-content: center;align-items: center;height:100%;">
+        <div style="flex:1 1 auto;overflow: hidden;display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;align-items: stretch; height:100%;">
+            <div  style="flex:1 1 auto; overflow:hidden;background-color: #abc;">
+                1
+            </div>
+        </div>
+        <div class=" her-container her-on  her-target" style="flex:0 0 auto; width:33vw;min-width:30px;max-width:50vw;display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;align-items: stretch; height:100%;">
+            <div class="her-bar" data-her-bar="w"></div>
+            <div class="box her-container her-on  her-target" style="flex:0 0 auto; overflow:hidden;height:100px; max-height: calc( 100vh - 30px ); min-height: 30px; background-color: #abc;">
+                1
+                <div class="her-bar" data-her-bar="s"></div>
+            </div>
+            <div class="box her-container her-on  her-target" style="flex:1 1 auto; overflow:hidden;background-color: #abc; overflow: hidden;">
+                2
+            </div>
+        </div>
+        <div class=" her-container her-on  her-target" style="flex:0 0 auto; width:33vw;min-width:30px;max-width:50vw;overflow: hidden;display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;align-items: stretch; height:100%;">
+            <div class="her-bar" data-her-bar="w"></div>
+            <div class="box her-container her-on  her-target" style="flex:0 0 auto; overflow:hidden;height:33vh; max-height: 90vh; min-height: 30px; background-color: #abc;">
+                1
+                <div class="her-bar" data-her-bar="s"></div>
+            </div>
+            <div class="box her-container her-on  her-target" style="flex:0 0 auto; overflow:hidden;height:33vh; max-height: 90vh; min-height: 30px; background-color: #abc;">
+                2
+                <div class="her-bar" data-her-bar="s"></div>
+            </div>
+            <div class="box her-container her-on  her-target" style="flex:1 1 auto; overflow:hidden;background-color: #abc;">
+                3
+            </div>
+        </div>
+    </div>
+</body>
+</html>
