@@ -62,12 +62,18 @@ const HtmlElementResizer = (function(){
 		let y = event.y;
 		let w = null;
 		let h = null;
-		if(state.herBar.indexOf('e')>-1){
+		let vw = window.innerWidth;
+		let vh = window.innerHeight;
+		if(x<0 || x>vw){
+			if(HtmlElementResizer.debug) console.log('out x-range')
+		}else if(state.herBar.indexOf('e')>-1){
 			w = state.rect_org.width+x-state.xy_org.x
 		}else if(state.herBar.indexOf('w')>-1){
 			w = state.rect_org.width-x+state.xy_org.x
 		}
-		if(state.herBar.indexOf('s')>-1){
+		if(y<0 || y>vh){
+			if(HtmlElementResizer.debug) console.log('out y-range')
+		}else if(state.herBar.indexOf('s')>-1){
 			h = state.rect_org.height+y-state.xy_org.y
 		}else if(state.herBar.indexOf('n')>-1){
 			h = state.rect_org.height-y+state.xy_org.y
